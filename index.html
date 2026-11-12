@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Exam 2 Escape — NURSE 154</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2a33;--muted:#5b6b75;--paper:#f6f2ea;--card:#fffdf8;--line:#ddd5c6;--teal:#0f5c63;--teal2:#137a82;--tealsoft:#dcefee;--coral:#c4553a;--coralsoft:#fbe5dd;--gold:#c9962c;--goldsoft:#f8ecd0;--ok:#2e7d4f;--oksoft:#e0f2e6;--bad:#b23a3a;--badsoft:#f9e1e1;--r:14px}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;line-height:1.15;margin:0 0 .4em}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px 60px}
+.bar{position:sticky;top:0;z-index:20;background:var(--teal);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.brand{font-family:"Fraunces",serif;font-weight:700;font-size:19px;margin-right:auto}
+.chip{background:rgba(255,255,255,.14);border-radius:999px;padding:4px 12px;font-size:14px;white-space:nowrap}
+.chip b{font-variant-numeric:tabular-nums}
+.barbtn{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;padding:4px 12px;font-size:14px}
+.prog{height:6px;background:rgba(255,255,255,.18)}
+.prog i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
+.hero{padding:32px 0 6px}
+.hero h1{font-size:clamp(30px,5vw,44px);color:var(--teal)}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:14px 0}
+.rules li{margin:4px 0}
+.fam{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:8px}
+.fam div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px}
+.fam b{display:block;color:var(--teal);font-family:"Fraunces",serif;font-size:17px}
+input[type=text],input[type=password]{font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus{outline:3px solid var(--tealsoft);border-color:var(--teal)}
+.btn{background:var(--teal);color:#fff;border:0;border-radius:10px;padding:11px 18px;font-weight:700}
+.btn:hover{background:var(--teal2)}
+.btn.ghost{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+.btn.coral{background:var(--coral)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.scene{background:var(--teal);color:#fff;border-radius:var(--r);padding:16px 20px;margin:20px 0 14px}
+.scene .k{font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.8;font-weight:700}
+.scene h2{color:#fff;font-size:24px;margin:2px 0 6px}
+.scene p{margin:0}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.qn{font-family:"Fraunces",serif;font-weight:700;color:var(--coral)}
+.tag{font-size:13px;font-weight:700;border-radius:999px;padding:2px 10px;background:var(--tealsoft);color:var(--teal)}
+.tag.sata{background:var(--goldsoft);color:#7a5a12}
+.stem{font-size:18px;margin:8px 0 12px}
+.opts{list-style:none;margin:0;padding:0}
+.opts li{display:flex;gap:12px;padding:9px 0;border-top:1px dashed var(--line)}
+.opts .d{flex:none;width:30px;height:30px;border-radius:8px;background:var(--tealsoft);color:var(--teal);font-weight:700;display:grid;place-items:center}
+.opts li.ok .d{background:var(--ok);color:#fff}
+.opts li.no .d{background:var(--badsoft);color:var(--bad)}
+.opts .w{display:block;font-size:15px;color:#33444e;margin-top:2px}
+.opts li.ok .w{color:var(--ok)}
+.lock{background:var(--goldsoft);border-radius:12px;padding:14px 16px;margin-top:14px}
+.lock label{font-weight:700;display:block;margin-bottom:6px}
+.lock input{width:150px;font-family:"Fraunces",serif;font-size:26px;font-weight:700;letter-spacing:.2em;text-align:center}
+.fb{border-radius:10px;padding:11px 14px;margin-top:12px;font-weight:700}
+.fb.no{background:var(--badsoft);color:var(--bad)}
+.fb.yes{background:var(--oksoft);color:var(--ok)}
+.cert{background:#fffdf5;border:10px double var(--gold);border-radius:8px;padding:34px 26px;text-align:center;margin:20px 0}
+.cert h2{font-size:clamp(28px,5vw,40px);color:var(--teal)}
+.cert .nm{font-family:"Fraunces",serif;font-size:32px;color:var(--coral);margin:6px 0}
+.cert .stats{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin:16px 0;font-size:15px}
+.cert .stats b{display:block;font-family:"Fraunces",serif;font-size:24px}
+.code{font-family:ui-monospace,monospace;letter-spacing:.12em;background:var(--tealsoft);padding:3px 10px;border-radius:6px}
+.foot{margin-top:36px;font-size:14px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+.linkbtn{background:none;border:0;color:var(--teal);text-decoration:underline;padding:0;font-size:14px}
+.modal{position:fixed;inset:0;background:rgba(20,30,36,.55);z-index:50;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 12px}
+.modal.open{display:flex}
+.modal .box{background:var(--card);border-radius:var(--r);max-width:820px;width:100%;padding:24px;position:relative}
+.modal .x{position:absolute;top:8px;right:12px;background:none;border:0;font-size:28px;color:var(--muted)}
+table.key{width:100%;border-collapse:collapse;font-size:15px}
+table.key td,table.key th{border-top:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.confirm{display:none;gap:6px;align-items:center}.confirm.show{display:inline-flex}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <div class="brand">🗝️ The Exam 2 Escape</div>
+  <span class="chip" id="qchip">Case study</span>
+  <span class="chip">⏱ <b id="timer">00:00</b></span>
+  <button class="barbtn" id="restart">Start over</button>
+  <span class="confirm" id="rc"><span class="chip">Erase progress?</span><button class="barbtn" id="ry">Yes</button><button class="barbtn" id="rn">No</button></span>
+</div><div class="prog"><i id="progbar"></i></div></div>
+<main class="wrap" id="app"></main>
+<div class="modal" id="km" role="dialog" aria-modal="true"><div class="box"><button class="x" id="kx" aria-label="Close">×</button><div id="kb"></div></div></div>
+<script>
+// Content for the Carter family unfolding case (Exam 2, Modules 6–8)
+const O = (t, c, w) => ({ t, c, w });
+const CASE = {
+ "family": [
+  [
+   "Dana Carter, 47",
+   "Bank manager and single parent. Her father moved in with her 8 months ago."
+  ],
+  [
+   "Maya, 16",
+   "Dana's daughter, a high school junior."
+  ],
+  [
+   "Leo, 9",
+   "Dana's son, in 4th grade."
+  ],
+  [
+   "Walt, 81",
+   "Dana's father, with metastatic lung cancer."
+  ],
+  [
+   "Sam, 27",
+   "Dana's younger brother."
+  ]
+ ],
+ "scenes": [
+  {
+   "title": "Scene 1: Back-to-school checkups",
+   "mod": "Module 6",
+   "story": "It's a busy August afternoon at the family clinic. Dana brings Leo (9) and Maya (16) in for checkups. Leo was just diagnosed with a peanut allergy.",
+   "qs": [
+    {
+     "sata": true,
+     "stem": "Leo needs to learn to use his epinephrine auto-injector. Which teaching approaches fit his development?",
+     "options": [
+      {
+       "t": "Let him practice with a trainer auto-injector on a doll",
+       "c": true,
+       "w": "Concrete operational thinkers learn by handling real objects."
+      },
+      {
+       "t": "Explain how IgE antibodies cause the allergic reaction",
+       "c": false,
+       "w": "Abstract physiology is beyond concrete operational thought."
+      },
+      {
+       "t": "Track his lunch label checks on a chart and praise each one",
+       "c": true,
+       "w": "Tracked progress and recognition build industry."
+      },
+      {
+       "t": "Have him imagine every future situation he might face",
+       "c": false,
+       "w": "Open-ended hypotheticals need formal operational thought."
+      },
+      {
+       "t": "Show him picture cards with each step in the right order",
+       "c": true,
+       "w": "Visual, sequenced steps fit concrete operational thinking."
+      },
+      {
+       "t": "Teach only his parents, since he's too young for rules",
+       "c": false,
+       "w": "School-age children follow rules well (Kohlberg's conventional level). Teach Leo too."
+      }
+     ]
+    },
+    {
+     "stem": "Leo tells the nurse, “I only eat my own lunch, because that's the rule, and good kids follow the rules.” How should the nurse use Leo's moral reasoning in allergy teaching?",
+     "options": [
+      {
+       "t": "Warn him that he'll get in trouble if he shares food",
+       "c": false,
+       "w": "Punishment-based framing is preconventional. Leo is already past it."
+      },
+      {
+       "t": "Ask him to create his own principles about sharing food",
+       "c": false,
+       "w": "Self-chosen principles are postconventional reasoning, not expected at 9."
+      },
+      {
+       "t": "Frame safety as a table rule that good friends follow",
+       "c": true,
+       "w": "Leo reasons at Kohlberg's conventional level: rules and being “good.” Build on that."
+      },
+      {
+       "t": "Avoid giving rules, since children his age resist them",
+       "c": false,
+       "w": "School-age children value rules. Rules are a strength to use."
+      }
+     ]
+    },
+    {
+     "stem": "Dana asks, “When will Leo start puberty, and what will we notice first?” Which response by the nurse is accurate?",
+     "options": [
+      {
+       "t": "“Voice change is usually the first sign you'll see.”",
+       "c": false,
+       "w": "Voice change comes in mid-to-late puberty."
+      },
+      {
+       "t": "“Puberty that starts at age 9 would be too early.”",
+       "c": false,
+       "w": "Onset in boys between about 9 and 14 is normal."
+      },
+      {
+       "t": "“His growth spurt comes first, usually around 10.”",
+       "c": false,
+       "w": "Boys' growth spurt comes in mid-puberty, about 2 years after girls'."
+      },
+      {
+       "t": "“Between 9 and 14; testicular growth comes first.”",
+       "c": true,
+       "w": "Testicular enlargement is the first sign of male puberty."
+      }
+     ]
+    },
+    {
+     "sata": true,
+     "stem": "During Maya's private interview, she asks about birth control. She has had sex without a condom and wants an STI test. She doesn't want her mom told. Which nursing actions are appropriate in Washington State?",
+     "options": [
+      {
+       "t": "Tell her you must inform her mother in the waiting room",
+       "c": false,
+       "w": "Minors may consent to birth control at any age, and to STI care at 14 and older."
+      },
+      {
+       "t": "Offer STI testing today based on her own consent",
+       "c": true,
+       "w": "At 16, she can consent to STI testing and treatment."
+      },
+      {
+       "t": "Promise that everything she says stays confidential",
+       "c": false,
+       "w": "Never promise absolute confidentiality. Abuse and safety are exceptions."
+      },
+      {
+       "t": "Explain her contraceptive options, risks, and benefits",
+       "c": true,
+       "w": "She can consent to birth control services without a parent."
+      },
+      {
+       "t": "Ask her partner's age and whether she feels safe",
+       "c": true,
+       "w": "A large age gap could require a mandated report. Screening for safety is part of care."
+      }
+     ]
+    },
+    {
+     "stem": "Before leaving, Dana tells the nurse privately that her hours were cut and the family runs out of food at the end of each month. Which action should the nurse take first?",
+     "options": [
+      {
+       "t": "Teach Dana how to plan low-cost meals for the family",
+       "c": false,
+       "w": "Helpful later, but it doesn't fix the family's lack of access to food."
+      },
+      {
+       "t": "Connect the family with SNAP and free school meals",
+       "c": true,
+       "w": "Food insecurity is a social determinant of health. Basic needs come first (Maslow)."
+      },
+      {
+       "t": "Document it and follow up at next year's checkup",
+       "c": false,
+       "w": "This delays a current basic need."
+      },
+      {
+       "t": "Refer Leo to a dietitian to plan his allergy diet",
+       "c": false,
+       "w": "It doesn't address the family's food insecurity."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Scene 2: Maya, six months later",
+   "mod": "Module 6",
+   "story": "Maya returns for a sports physical. Dana says, “She's like a different kid every month.”",
+   "qs": [
+    {
+     "sata": true,
+     "stem": "Which of Maya's behaviors reflect healthy identity development?",
+     "options": [
+      {
+       "t": "Joined the robotics club after quitting dance",
+       "c": true,
+       "w": "Trying new roles is healthy identity exploration."
+      },
+      {
+       "t": "Says, “I'm whatever my boyfriend wants me to be.”",
+       "c": false,
+       "w": "Losing herself in a partner's wishes signals role confusion."
+      },
+      {
+       "t": "Argues about curfew but still talks with the family",
+       "c": true,
+       "w": "Independence with stable family ties is expected in adolescence."
+      },
+      {
+       "t": "Took a part-time job to save money for a car",
+       "c": true,
+       "w": "Supports Havighurst's adolescent task of gaining emotional independence from parents."
+      },
+      {
+       "t": "Has never questioned the career her parents chose",
+       "c": false,
+       "w": "Committing without exploring (foreclosure) isn't an achieved identity."
+      }
+     ]
+    },
+    {
+     "stem": "Maya started birth control pills. Which teaching approach best fits her cognitive development?",
+     "options": [
+      {
+       "t": "Give her one simple rule without explaining why",
+       "c": false,
+       "w": "Teens are formal operational thinkers and want the reasons."
+      },
+      {
+       "t": "Discuss what to do if she misses a pill, and why",
+       "c": true,
+       "w": "Formal operational thought: she can reason through “what if” scenarios and the reasons behind treatment."
+      },
+      {
+       "t": "Use only a picture chart, since she thinks concretely",
+       "c": false,
+       "w": "This underestimates an adolescent's thinking."
+      },
+      {
+       "t": "Share stories of teen pregnancies to scare her",
+       "c": false,
+       "w": "Fear tactics don't build the reasoning she needs."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Scene 3: Uncle Sam",
+   "mod": "Module 7",
+   "story": "Dana's brother Sam, 27, comes in with a knee sprain from pickup basketball. He's a personal trainer.",
+   "qs": [
+    {
+     "stem": "Sam mentions several habits. Which statement requires the nurse's priority follow-up?",
+     "options": [
+      {
+       "t": "“I vape, but I plan to quit by this summer.”",
+       "c": false,
+       "w": "A real risk to address with teaching, but not immediate."
+      },
+      {
+       "t": "“I usually work about 60 hours every week.”",
+       "c": false,
+       "w": "A stressor worth discussing, but not an immediate threat."
+      },
+      {
+       "t": "“I haven't had a checkup in about 5 years.”",
+       "c": false,
+       "w": "Health maintenance, not urgent."
+      },
+      {
+       "t": "“I drive home after a few beers. I'm fine.”",
+       "c": true,
+       "w": "Unintentional injury is a leading cause of death in young adults. Impaired driving is an immediate threat to life."
+      }
+     ]
+    },
+    {
+     "stem": "Sam says, “When a relationship starts getting serious, I end it before anyone gets hurt.” Which response by the nurse is best?",
+     "options": [
+      {
+       "t": "“What happens for you when things get serious?”",
+       "c": true,
+       "w": "An open-ended question explores his avoidance of closeness. His pattern points toward isolation, not intimacy."
+      },
+      {
+       "t": "“You're young. Focus on your career for now.”",
+       "c": false,
+       "w": "Endorses the avoidance and delays the young adult task."
+      },
+      {
+       "t": "“Most people your age feel that way at times.”",
+       "c": false,
+       "w": "Generalizing dismisses him."
+      },
+      {
+       "t": "“Have you tried a dating app with better matches?”",
+       "c": false,
+       "w": "Advice-giving skips his fear of closeness."
+      }
+     ]
+    },
+    {
+     "stem": "The nurse teaches Sam his knee rehab exercises. He says, “I'm a trainer. I know exercise.” Which approach best applies adult learning theory?",
+     "options": [
+      {
+       "t": "Review the standard rehab handout with him line by line",
+       "c": false,
+       "w": "Ignores his experience."
+      },
+      {
+       "t": "Explain ligament healing in detail before any exercise",
+       "c": false,
+       "w": "Adults are problem-centered. Start with what he needs now."
+      },
+      {
+       "t": "Build on what he uses with clients and his work goals",
+       "c": true,
+       "w": "Knowles: adults are self-directed, draw on their experience, and learn best when teaching fits their goals."
+      },
+      {
+       "t": "Show a rehab video, then quiz him on the key points",
+       "c": false,
+       "w": "Teacher-centered, not self-directed."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Scene 4: Dana in the middle",
+   "mod": "Module 7",
+   "story": "Walt moved in 8 months ago. Dana, 47, works full time, drives him to treatments, and manages the kids. At her wellness visit, her BMI is 31. She has never smoked, and she's had no screening since age 40.",
+   "qs": [
+    {
+     "sata": true,
+     "stem": "Which screenings should the nurse recommend for Dana?",
+     "options": [
+      {
+       "t": "Colorectal cancer screening now",
+       "c": true,
+       "w": "Colorectal screening starts at 45."
+      },
+      {
+       "t": "A yearly screening chest x-ray",
+       "c": false,
+       "w": "Chest x-rays aren't used to screen adults who have no symptoms."
+      },
+      {
+       "t": "A bone density scan now",
+       "c": false,
+       "w": "Routine at 65, or earlier only with added fracture risk."
+      },
+      {
+       "t": "A yearly screening mammogram",
+       "c": true,
+       "w": "Yearly mammograms are recommended for women 45 to 54 (American Cancer Society), and screening can start at 40."
+      },
+      {
+       "t": "A yearly low-dose lung CT scan",
+       "c": false,
+       "w": "Only for people with a heavy smoking history. She has never smoked."
+      },
+      {
+       "t": "Diabetes screening now",
+       "c": true,
+       "w": "Adults 35–70 with overweight or obesity. Her BMI is 31."
+      }
+     ]
+    },
+    {
+     "stem": "Which finding best shows that Dana is moving from the resistance stage into exhaustion?",
+     "options": [
+      {
+       "t": "Her BP is back near her usual baseline",
+       "c": false,
+       "w": "Vital signs returning toward normal fit the resistance stage, not exhaustion."
+      },
+      {
+       "t": "Racing heart when the phone rings at night",
+       "c": false,
+       "w": "A brief sympathetic surge is an alarm response."
+      },
+      {
+       "t": "Third infection in 2 months; can't focus at work",
+       "c": true,
+       "w": "Lowered immunity and poor concentration show depleted resources: exhaustion."
+      },
+      {
+       "t": "Irritability at the end of long workdays",
+       "c": false,
+       "w": "An expected stress response, not evidence of exhaustion."
+      }
+     ]
+    },
+    {
+     "stem": "Dana develops shingles. Using Neuman's Systems Model, how should the nurse interpret this?",
+     "options": [
+      {
+       "t": "Her normal line was breached; lines of resistance respond",
+       "c": true,
+       "w": "Illness means the stressor broke through her normal line of defense. The lines of resistance fight it to protect the basic structure."
+      },
+      {
+       "t": "Only her flexible line of defense has been affected",
+       "c": false,
+       "w": "A flexible-line effect is brief, with no illness. Shingles is a reaction."
+      },
+      {
+       "t": "Her basic structure has failed and can't recover",
+       "c": false,
+       "w": "The basic structure holds survival factors. She is ill, not failing to survive."
+      },
+      {
+       "t": "She has reconstituted above her prior wellness level",
+       "c": false,
+       "w": "Reconstitution comes after recovery, not during illness."
+      }
+     ]
+    },
+    {
+     "sata": true,
+     "stem": "Which of Dana's statements show adaptive coping?",
+     "options": [
+      {
+       "t": "“I asked my brother to take Dad to appointments.”",
+       "c": true,
+       "w": "Problem-focused coping: she shares the load."
+      },
+      {
+       "t": "“I quit my walking group. There's no time.”",
+       "c": false,
+       "w": "Dropping healthy outlets removes her supports."
+      },
+      {
+       "t": "“Dad's going to beat this. I'm sure of it.”",
+       "c": false,
+       "w": "Denial of a terminal diagnosis delays preparation."
+      },
+      {
+       "t": "“I joined an online caregiver support group.”",
+       "c": true,
+       "w": "Uses social support."
+      },
+      {
+       "t": "“I listed what only I can do and what others can.”",
+       "c": true,
+       "w": "Problem-solving that reduces the stressor."
+      }
+     ]
+    },
+    {
+     "stem": "Dana says, “I've stepped back from mentoring at work for now, but I'm teaching Maya to drive and Leo to cook.” How should the nurse interpret this?",
+     "options": [
+      {
+       "t": "Stagnation, because she stopped mentoring at work",
+       "c": false,
+       "w": "Generativity isn't tied to one activity."
+      },
+      {
+       "t": "Generativity, because she is guiding her children",
+       "c": true,
+       "w": "Erikson's middle adult task is guiding the next generation. Parenting counts, even if she paused mentoring at work."
+      },
+      {
+       "t": "Identity confusion, because her priorities changed",
+       "c": false,
+       "w": "Wrong stage."
+      },
+      {
+       "t": "Isolation, because she has less time for friends",
+       "c": false,
+       "w": "Wrong stage, and not supported by her statement."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Scene 5: Walt's care",
+   "mod": "Modules 7 & 8",
+   "story": "Walt is admitted with shortness of breath. He is alert, and after talking with his oncologist he decides to stop chemotherapy. Dana is his named health care agent.",
+   "qs": [
+    {
+     "stem": "The nurse coaches Dana step by step to give Walt mouth care, then praises her technique. Which of Swanson's caring processes is this?",
+     "options": [
+      {
+       "t": "Knowing",
+       "c": false,
+       "w": "Knowing means understanding the event as it means something to the client."
+      },
+      {
+       "t": "Doing for",
+       "c": false,
+       "w": "Doing for means doing what the client would do for themselves if they could."
+      },
+      {
+       "t": "Being with",
+       "c": false,
+       "w": "Being with means emotional presence."
+      },
+      {
+       "t": "Enabling",
+       "c": true,
+       "w": "Coaching, informing, and validating so the person can manage the transition themselves."
+      }
+     ]
+    },
+    {
+     "stem": "For 60 years Walt has ended each day with a glass of whiskey, a family tradition. Because he now takes opioids, the nurse works with him to keep the evening ritual with a warm non-alcoholic drink in his favorite glass. Which Leininger action is this?",
+     "options": [
+      {
+       "t": "Culture care preservation",
+       "c": false,
+       "w": "Preservation keeps a harmless practice unchanged."
+      },
+      {
+       "t": "Culture care accommodation",
+       "c": false,
+       "w": "Accommodation negotiates a practice into the setting without changing its harmful part."
+      },
+      {
+       "t": "Culture care repatterning",
+       "c": true,
+       "w": "Changes the harmful part (alcohol with opioids) while keeping what the ritual means to him."
+      },
+      {
+       "t": "Cultural imposition",
+       "c": false,
+       "w": "Imposition would mean simply forbidding it."
+      }
+     ]
+    },
+    {
+     "stem": "Walt has stopped chemotherapy, and his prognosis is about 3 months. He chooses hospice. Which statement about this change is accurate?",
+     "options": [
+      {
+       "t": "Curative treatment stops; care focuses on comfort",
+       "c": true,
+       "w": "Hospice: a prognosis of 6 months or less and no treatment aimed at cure. The client and family are the unit of care."
+      },
+      {
+       "t": "He must move to an inpatient hospice facility",
+       "c": false,
+       "w": "Most hospice care happens at home."
+      },
+      {
+       "t": "His pain medicine is reduced to keep him alert",
+       "c": false,
+       "w": "Symptom control continues and often increases."
+      },
+      {
+       "t": "His family is no longer included in decisions",
+       "c": false,
+       "w": "Hospice centers on the client and family."
+      }
+     ]
+    },
+    {
+     "stem": "While Walt is alert and oriented, Dana asks the nurse not to give his ordered morphine because she's afraid it will speed his death. What should the nurse do?",
+     "options": [
+      {
+       "t": "Hold it, because Dana is his legal health care agent",
+       "c": false,
+       "w": "An agent decides only when the client can't."
+      },
+      {
+       "t": "Hold it until the provider can decide what to do",
+       "c": false,
+       "w": "Withholding comfort care isn't the provider's call when the client can decide."
+      },
+      {
+       "t": "Request an ethics consult before giving any dose",
+       "c": false,
+       "w": "Not needed. Walt can decide for himself."
+      },
+      {
+       "t": "Ask Walt what he wants, then address Dana's fears",
+       "c": true,
+       "w": "Walt has capacity, so he decides. Dana needs teaching and support."
+      }
+     ]
+    },
+    {
+     "stem": "Walt is going home with hospice and does not want CPR. If Dana calls 911, which document tells EMS to honor his wishes?",
+     "options": [
+      {
+       "t": "His signed living will",
+       "c": false,
+       "w": "A living will states wishes but isn't a portable medical order for EMS."
+      },
+      {
+       "t": "His durable power of attorney",
+       "c": false,
+       "w": "It names an agent but doesn't give EMS orders."
+      },
+      {
+       "t": "His signed POLST form",
+       "c": true,
+       "w": "POLST is a portable medical order that travels with the client so EMS can follow it."
+      },
+      {
+       "t": "His hospital DNR order",
+       "c": false,
+       "w": "Hospital orders don't travel home with the client."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Scene 6: The final weeks",
+   "mod": "Module 8",
+   "story": "Walt is home with hospice. The family takes turns at his bedside.",
+   "qs": [
+    {
+     "stem": "Walt turns toward the wall and says, “What's the point of visitors now?” Which nursing response is best?",
+     "options": [
+      {
+       "t": "Sit with him quietly and let him share his sadness",
+       "c": true,
+       "w": "Kübler-Ross depression stage: allow sadness and be present. Don't try to cheer him up."
+      },
+      {
+       "t": "“Cheer up. Your grandkids love seeing you here.”",
+       "c": false,
+       "w": "Dismisses his feelings."
+      },
+      {
+       "t": "“Let's focus on the good days you still have.”",
+       "c": false,
+       "w": "Redirects instead of listening."
+      },
+      {
+       "t": "“I'll leave you alone until you want to talk.”",
+       "c": false,
+       "w": "Withdraws presence when he needs it."
+      }
+     ]
+    },
+    {
+     "sata": true,
+     "stem": "Which findings indicate that Walt is nearing death?",
+     "options": [
+      {
+       "t": "Increased appetite",
+       "c": false,
+       "w": "Intake usually declines."
+      },
+      {
+       "t": "Mottled knees",
+       "c": true,
+       "w": "Reduced circulation."
+      },
+      {
+       "t": "Cool hands and feet",
+       "c": true,
+       "w": "Reduced circulation to the extremities."
+      },
+      {
+       "t": "Rising blood pressure",
+       "c": false,
+       "w": "Blood pressure usually falls."
+      },
+      {
+       "t": "Periods of apnea",
+       "c": true,
+       "w": "Breathing patterns change, such as Cheyne-Stokes respirations."
+      },
+      {
+       "t": "Decreased urine output",
+       "c": true,
+       "w": "Reduced perfusion and intake."
+      }
+     ]
+    },
+    {
+     "stem": "Dana says, “He hasn't eaten in 3 days. He's starving! Can we get a feeding tube?” Which response by the nurse is best?",
+     "options": [
+      {
+       "t": "“I'll ask the provider about a feeding tube today.”",
+       "c": false,
+       "w": "A feeding tube adds burden and discomfort at the end of life."
+      },
+      {
+       "t": "“Eating less is normal now; let's keep his mouth moist.”",
+       "c": true,
+       "w": "Explains that eating less is a normal part of dying and gives her a comfort action she can do."
+      },
+      {
+       "t": "“Try giving him small sips of water every hour.”",
+       "c": false,
+       "w": "Aspiration risk in a drowsy client."
+      },
+      {
+       "t": "“Don't worry. He doesn't feel hungry anymore.”",
+       "c": false,
+       "w": "Dismisses her fear without explaining or involving her."
+      }
+     ]
+    },
+    {
+     "sata": true,
+     "stem": "Dana cries and says, “I should have moved him in with us sooner.” Which responses are therapeutic?",
+     "options": [
+      {
+       "t": "“At least he lived a long life.”",
+       "c": false,
+       "w": "“At least” minimizes her grief."
+      },
+      {
+       "t": "“You wish you'd had more time with him.”",
+       "c": true,
+       "w": "Reflects her feeling."
+      },
+      {
+       "t": "“You did everything you could.”",
+       "c": false,
+       "w": "False reassurance. The nurse can't know that."
+      },
+      {
+       "t": "“Tell me about your time with him.”",
+       "c": true,
+       "w": "An open-ended question."
+      },
+      {
+       "t": "Sitting quietly beside her",
+       "c": true,
+       "w": "Silent presence."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Scene 7: After Walt's death",
+   "mod": "Module 8",
+   "story": "Walt dies peacefully at home, as expected. The hospice nurse pronounces his death per agency policy.",
+   "qs": [
+    {
+     "sata": true,
+     "stem": "Which postmortem care actions are appropriate?",
+     "options": [
+      {
+       "t": "Call 911 so EMS can begin CPR right away",
+       "c": false,
+       "w": "Walt's POLST says no CPR, and this was an expected death."
+      },
+      {
+       "t": "Position him supine with the head slightly raised",
+       "c": true,
+       "w": "Prevents blood pooling and discoloration in the face."
+      },
+      {
+       "t": "Close his eyes and put his dentures in",
+       "c": true,
+       "w": "Gives a natural appearance."
+      },
+      {
+       "t": "Leave all tubes in place for the examiner",
+       "c": false,
+       "w": "An expected hospice death isn't a medical examiner case."
+      },
+      {
+       "t": "Offer family time and ask about their rituals",
+       "c": true,
+       "w": "Honor the family's cultural and religious practices, without rushing them."
+      }
+     ]
+    },
+    {
+     "stem": "Nine months later, Leo (now 10) has stomachaches before school and has been fighting at recess. He says he's “fine” about Grandpa. Which type of grief is he most likely showing?",
+     "options": [
+      {
+       "t": "Delayed",
+       "c": false,
+       "w": "Delayed grief is postponed, then surfaces as grief later."
+      },
+      {
+       "t": "Disenfranchised",
+       "c": false,
+       "w": "His loss is openly recognized."
+      },
+      {
+       "t": "Masked",
+       "c": true,
+       "w": "Grief shows up as physical symptoms and behaviors he doesn't connect to the loss."
+      },
+      {
+       "t": "Complicated",
+       "c": false,
+       "w": "Complicated grief is intense, recognized grief that impairs function long term."
+      }
+     ]
+    },
+    {
+     "stem": "Kim, Walt's hospice nurse, has had five patients die this month. Which strategy best protects her from compassion fatigue over time?",
+     "options": [
+      {
+       "t": "Pick up extra shifts so she stays busy",
+       "c": false,
+       "w": "Avoidance that drains her further."
+      },
+      {
+       "t": "Keep an emotional distance from patients",
+       "c": false,
+       "w": "Detachment is a sign of compassion fatigue, not protection."
+      },
+      {
+       "t": "Skip her patients' memorial services",
+       "c": false,
+       "w": "Avoids acknowledging the loss."
+      },
+      {
+       "t": "Join team debriefings and use peer support",
+       "c": true,
+       "w": "Acknowledging grief and using supports prevents compassion fatigue."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+};
+
+const KEY="exam2-case-v1", PASS="N154";
+const QS=[]; CASE.scenes.forEach((s,si)=>s.qs.forEach((q,qi)=>QS.push({...q,si,qi})));
+const codeOf=q=>q.options.map((o,i)=>o.c?i+1:0).filter(Boolean).join("");
+let S=load()||fresh();
+function fresh(){return{name:"",started:false,i:0,start:null,end:null,tries:{},revealed:{},done:false,solved:{}}}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=ms=>{const t=Math.max(0,Math.floor(ms/1000)),h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;return(h?h+":":"")+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")};
+setInterval(()=>{if(S.start)$("#timer").textContent=fmt((S.end||Date.now())-S.start)},1000);
+function bar(){const n=Object.keys(S.solved).length;$("#progbar").style.width=(n/QS.length*100)+"%";$("#qchip").textContent=S.done?"Escaped!":S.started?`Door ${Math.min(S.i+1,QS.length)} of ${QS.length}`:"Case study";}
+$("#restart").onclick=()=>{$("#restart").style.display="none";$("#rc").classList.add("show")};
+$("#rn").onclick=()=>{$("#restart").style.display="";$("#rc").classList.remove("show")};
+$("#ry").onclick=()=>{S=fresh();save();$("#timer").textContent="00:00";$("#rn").onclick();render()};
+function foot(){return `<div class="foot"><span>NURSE 154 · Olympic College Nursing · Exam 2 review (Modules 6–8) · not graded</span><button class="linkbtn" id="kbtn">Instructor key</button></div>`}
+function bindFoot(){$("#kbtn").onclick=openKey}
+
+function render(){bar(); window.scrollTo(0,0);
+  if(!S.started) return intro();
+  if(S.done) return cert();
+  question();
+}
+function intro(){
+  $("#app").innerHTML=`<section class="hero"><h1>The Exam 2 Escape</h1>
+  <p>This escape room is a virtual case study. You'll follow one family through Modules 6–8: school-age and teen development, adult health and stress, caring theories, and end-of-life care.</p></section>
+  <div class="card"><h3>How to unlock each door</h3><ul class="rules">
+  <li>Each question has numbered answer options. Enter the <b>number</b> of the correct answer as the code.</li>
+  <li><b>Select all that apply:</b> enter every correct number <b>in numerical order</b>, with no spaces (for example, <span class="code">136</span>).</li>
+  <li>A wrong code sends you back to try again. After 3 wrong tries, you can reveal the answer, but reveals count on your certificate.</li>
+  <li>Every unlocked door shows the rationale for each option. Read it before moving on.</li></ul></div>
+  <div class="card"><h3>Meet the Carter family</h3><div class="fam">${CASE.family.map(f=>`<div><b>${esc(f[0])}</b>${esc(f[1])}</div>`).join("")}</div></div>
+  <form id="sf" class="row" style="margin-top:16px"><label class="sr" for="nm">Your first and last name</label>
+  <input type="text" id="nm" placeholder="Your first and last name" required maxlength="60" style="flex:1;min-width:240px;max-width:420px">
+  <button class="btn" type="submit">Let's get started!</button></form>`+foot();
+  bindFoot();
+  $("#sf").onsubmit=e=>{e.preventDefault();const n=$("#nm").value.trim();if(!n)return;S.name=n;S.started=true;S.start=Date.now();save();render()};
+}
+function sceneBox(q){const s=CASE.scenes[q.si];return `<div class="scene"><div class="k">${esc(s.mod)}</div><h2>${esc(s.title)}</h2><p>${esc(s.story)}</p></div>`}
+function question(){
+  const q=QS[S.i], solved=!!S.solved[S.i], t=S.tries[S.i]||0;
+  let h=sceneBox(q)+`<div class="card"><div class="qhead"><span class="qn">Door ${S.i+1} of ${QS.length}</span>${q.sata?'<span class="tag sata">Select all that apply</span>':'<span class="tag">Single answer</span>'}</div>
+  <div class="stem">${esc(q.stem)}</div><ol class="opts">`+q.options.map((o,i)=>`<li class="${solved?(o.c?"ok":"no"):""}"><span class="d">${i+1}</span><span>${esc(o.t)}${solved?`<span class="w">${o.c?"✓ Correct. ":"✗ "}${esc(o.w)}</span>`:""}</span></li>`).join("")+`</ol>`;
+  if(!solved){
+    h+=`<form class="lock" id="lf"><label for="code">🔐 Enter the code to unlock the door${q.sata?" (all correct numbers, in numerical order)":""}</label>
+      <div class="row"><input type="text" id="code" inputmode="numeric" autocomplete="off" maxlength="6"><button class="btn" type="submit">Unlock</button>
+      ${t>=3?`<button class="btn ghost" type="button" id="rev">Reveal answer</button>`:""}</div><div id="fb"></div></form>`;
+  } else {
+    h+=`<div class="fb yes">🔓 ${S.revealed[S.i]?"Answer revealed. Code: ":"Door unlocked! Code: "}${codeOf(q)}</div>
+      <div class="row" style="margin-top:14px">${S.i>0?`<button class="btn ghost" id="prev">← Previous</button>`:""}<button class="btn coral" id="next">${S.i===QS.length-1?"Finish the case →":"Next door →"}</button></div>`;
+  }
+  h+=`</div>`+(solved?"":(S.i>0?`<button class="linkbtn" id="prev">← Review the previous door</button>`:""))+foot();
+  $("#app").innerHTML=h; bindFoot();
+  const p=$("#prev"); if(p) p.onclick=()=>{S.i--;save();render()};
+  if(solved){ $("#next").onclick=()=>{ if(S.i===QS.length-1){S.done=true;S.end=Date.now()} else S.i++; save(); render(); }; return; }
+  $("#code").focus();
+  const r=$("#rev"); if(r) r.onclick=()=>{S.revealed[S.i]=true;S.solved[S.i]=true;save();render()};
+  $("#lf").onsubmit=e=>{e.preventDefault();
+    const v=$("#code").value.replace(/\D/g,""), want=codeOf(q); if(!v) return;
+    if(v===want){S.solved[S.i]=true;save();render();return}
+    S.tries[S.i]=(S.tries[S.i]||0)+1;save();
+    const sorted=v.split("").sort().join("");
+    let msg = (q.sata && sorted===want) ? "Right numbers, but enter them in numerical order." : "That code doesn't unlock the door. Reread the question and try again.";
+    if(S.tries[S.i]>=3 && !$("#rev")){ question(); $("#fb").innerHTML=`<div class="fb no">${msg}</div>`; return; }
+    $("#fb").innerHTML=`<div class="fb no">${msg}</div>`; $("#code").select();
+  };
+}
+function vcode(){const s=S.name+"|"+S.start+"|"+S.end+"|"+Object.keys(S.revealed).length;let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return "154-"+(h>>>0).toString(36).toUpperCase().padStart(7,"0")}
+function cert(){
+  const rev=Object.keys(S.revealed).length, first=QS.filter((q,i)=>!S.tries[i]&&!S.revealed[i]).length, d=new Date(S.end);
+  $("#app").innerHTML=`<div class="cert"><div style="font-size:40px">🏆</div>
+  <div style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700">Certificate of completion</div>
+  <h2 style="margin-top:6px">Congratulations,</h2><div class="nm">${esc(S.name)}!</div>
+  <p style="max-width:560px;margin:8px auto">You escaped the Exam 2 case study. You followed the Carter family through development, stress, caring and end-of-life care, and unlocked all ${QS.length} doors.</p>
+  <div class="stats"><div><b>${first} / ${QS.length}</b>correct on first try</div><div><b>${rev}</b>answers revealed</div><div><b>${fmt(S.end-S.start)}</b>total time</div><div><b>${d.toLocaleDateString()}</b>${d.toLocaleTimeString([], {hour:"numeric",minute:"2-digit"})}</div></div>
+  <p style="font-size:14px;color:var(--muted)">NURSE 154 · Olympic College Nursing · Exam 2 Review · Verification <span class="code">${vcode()}</span></p></div>
+  <p style="text-align:center;color:var(--muted)">📸 Take a screenshot of this certificate and submit it as proof of completion.</p>
+  <div class="row" style="justify-content:center"><button class="btn ghost" id="rv">Review all doors and rationales</button><button class="btn coral" id="ng">Start a new game</button></div>`+foot();
+  bindFoot();
+  $("#rv").onclick=()=>{S.done=false;S.i=0;save();render()};
+  $("#ng").onclick=()=>$("#ry").onclick();
+}
+function openKey(){
+  $("#kb").innerHTML=`<h2>Instructor key</h2><form id="pf" class="row"><input type="password" id="pc" placeholder="Passcode"><button class="btn">Open</button></form><div id="pm"></div>`;
+  $("#km").classList.add("open"); $("#pc").focus();
+  $("#pf").onsubmit=e=>{e.preventDefault(); if($("#pc").value.trim().toUpperCase()===PASS) showKey(); else $("#pm").innerHTML='<div class="fb no">Incorrect passcode.</div>'};
+}
+function showKey(){
+  let h=`<h2>Instructor key</h2><p>${QS.length} doors in 7 scenes. Codes are the correct option numbers in numerical order.</p><table class="key"><tr><th>Door</th><th>Scene</th><th>Code</th><th>Correct answer(s)</th></tr>`;
+  QS.forEach((q,i)=>{h+=`<tr><td>${i+1}</td><td>${q.si+1}</td><td><b>${codeOf(q)}</b></td><td>${q.options.filter(o=>o.c).map(o=>esc(o.t)).join("<br>")}</td></tr>`});
+  h+=`</table><div class="row" style="margin-top:14px"><button class="btn ghost" id="ua">Unlock all doors on this device (demo)</button></div>`;
+  $("#kb").innerHTML=h;
+  $("#ua").onclick=()=>{if(!S.started){S.started=true;S.name="Instructor demo";S.start=Date.now()}QS.forEach((q,i)=>S.solved[i]=true);S.i=0;save();$("#km").classList.remove("open");render()};
+}
+$("#kx").onclick=()=>$("#km").classList.remove("open");
+$("#km").onclick=e=>{if(e.target.id==="km")$("#km").classList.remove("open")};
+render(); if(S.start)$("#timer").textContent=fmt((S.end||Date.now())-S.start);
+</script>
+</body>
+</html>
